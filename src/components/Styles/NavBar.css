@@ -9,9 +9,12 @@
   align-items: center;
   padding: 20px;
   font-weight: 700;
-  background-color: #cbdeed;
-  border-radius: 20px;
+  background-color: #fff;
   transition: background-color 0.5s;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-width: 4px;
+  border-image-source: linear-gradient(to left, #3a80d5, #d59f3a);
 }
 
 .nav-bar.dark-mode {
@@ -20,7 +23,10 @@
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  background: -webkit-linear-gradient(#3a4cb1, #65e188);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .options {
@@ -31,9 +37,13 @@
 .options button:nth-child(1) {
   height: 50px;
   width: 150px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-width: 4px;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
   background-color: #f3b7ef;
+  cursor: pointer;
   border-radius: 20px;
-  border: none;
   cursor: pointer;
   transition: background-color 0.5s;
   font-size: small;
@@ -43,9 +53,13 @@
 }
 
 .options button:nth-child(2) {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-width: 4px;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  background-color: #f3b7ef;
   cursor: pointer;
   transition: border-radius 0.5s;
 }
@@ -56,10 +70,5 @@ button img {
 
 /* Rotate the image 180 degrees on dark mode */
 .nav-bar.dark-mode button img {
-  transform: rotate(180deg);
+  transform: rotate(360deg);
 }
-
-/* Adjust border-radius for dark mode */
-/* .nav-bar.dark-mode button {
-  border-radius: 50%;
-} */

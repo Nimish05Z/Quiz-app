@@ -1,19 +1,30 @@
 /* QuestionBox.css */
 
 .question-box {
-    margin-top: 2%;
+  margin-top: 2%;
   margin-left: 10%;
   margin-right: 10%;
+  margin-bottom: 2%;
   height: 550px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
   font-weight: 700;
-  background-color: #e0e0e0;
-  border-radius: 20px;
+  background-color: #fff;
   transition: background-color 0.5s;
-  }
-  
-  .question-box.dark-mode {
-    background-color: #333;
-    color: #fff;
-  }
-  
+  border: 2px solid;
+  border-image-slice: 1;
+  border-width: 4px;
+  border-image-source: linear-gradient(to left, #3a80d5, #d59f3a);
+}
+
+.question-box.dark-mode {
+  background-color: #01121f;
+  color: #fff;
+}
+
+.question-box.light-mode {
+  background-color: #f5f5f5;
+  color: #000;
+}

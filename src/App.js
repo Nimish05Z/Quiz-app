@@ -24,7 +24,7 @@ const App = () => {
         toggleDarkMode={toggleDarkMode}
         highlightQuestion={handleHighlightQuestion}
       />
-      <QuestionBox isHighlighted={highlightQuestion} />
+      <QuestionBox isHighlighted={highlightQuestion} isDarkMode={isDarkMode} />
     </div>
   );
 };
