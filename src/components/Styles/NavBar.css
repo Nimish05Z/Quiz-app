@@ -1,0 +1,66 @@
+/* NavBar.css */
+
+.nav-bar {
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-weight: 700;
+  background-color: #cbdeed;
+  border-radius: 20px;
+  transition: background-color 0.5s;
+}
+
+.nav-bar.dark-mode {
+  background-color: #01121f;
+  color: #fff;
+}
+
+.title {
+  font-size: 1.5rem;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+}
+
+.options button:nth-child(1){
+  height: 50px;
+  width: 150px;
+  background-color: #f3b7ef;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  font-size:small;
+  font-weight: 700;
+  margin-right: 10px;
+  border-radius: 0px;
+
+}
+
+.options button:nth-child(2){
+  padding: 8px 16px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: border-radius 0.5s;
+}
+
+button img {
+  transition: transform 0.5s, border-radius 0.5s;
+}
+
+/* Rotate the image 180 degrees on dark mode */
+.nav-bar.dark-mode button img {
+  transform: rotate(180deg);
+}
+
+/* Adjust border-radius for dark mode */
+/* .nav-bar.dark-mode button {
+  border-radius: 50%;
+} */
