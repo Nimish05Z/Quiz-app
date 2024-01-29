@@ -29,7 +29,7 @@
 }
 
 .question-text {
-  font-size: 2.6rem;
+  font-size: 2.5rem;
   color: #c53aa6;
   text-align: center;
   width: 100%;
@@ -64,7 +64,7 @@
   border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
   color: #333;
   cursor: pointer;
-  padding: 10px;
+  padding: 20px;
   margin: 10px;
   border-radius: 10px;
   transition: background-color 0.3s, color 0.3s;
@@ -75,8 +75,13 @@
   color: #fff;
 }
 
-.selected {
-  background-color: #14a919;
+.selected-correct {
+  background-color: #14a919; /* Green color for correct answer */
+  color: #fff;
+}
+
+.selected-wrong {
+  background-color: #d32f2f; /* Red color for wrong answer */
   color: #fff;
 }
 
@@ -89,7 +94,6 @@
 }
 
 .restartButton {
-  /* display: inline-block; */
   align-self: center;
   width: 40%;
   height: 90px;
@@ -118,7 +122,23 @@
   color: #743ad5; /* Adjust the color as needed */
   transition: background-color 0.5s;
 }
+
 .highlighted .resultText {
   color: #743ad5; /* Adjust the color as needed */
   transition: background-color 0.5s;
+}
+
+.second {
+  font-size: 3rem;
+  margin-top: 30px;
+  font-weight: 700;
+  color: #c53aa6;
+  text-align: center;
+  width: 100%;
+}
+
+.third {
+  background: -webkit-linear-gradient(#3a4cb1, #e24b4b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

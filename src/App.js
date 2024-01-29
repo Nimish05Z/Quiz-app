@@ -1,8 +1,8 @@
 // App.js
-import React, { useState } from 'react';
-import NavBar from './components/Items/NavBar';
-import QuestionBox from './components/Items/QuesionBox';
-import './App.css'; // Import your global styles
+import React, { useState } from "react";
+import NavBar from "./components/Items/NavBar";
+import QuestionBox from "./components/Items/QuesionBox";
+import "./App.css"; // Import your global styles
 
 const App = () => {
   const [isDarkMode, setDarkMode] = useState(false);
@@ -17,7 +17,7 @@ const App = () => {
   };
 
   return (
-    <div className={`app-container ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+    <div className={`app-container ${isDarkMode ? "dark-mode" : "light-mode"}`}>
       <NavBar
         isDarkMode={isDarkMode}
         toggleDarkMode={toggleDarkMode}

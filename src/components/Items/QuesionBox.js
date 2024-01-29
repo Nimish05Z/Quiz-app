@@ -30,13 +30,17 @@ const QuestionBox = ({ isDarkMode, isHighlighted }) => {
   const calculateResult = () => {
     const correctAnswers = userAnswers.reduce((count, answer, index) => {
       const isCorrect =
-        answer ===
-        questions[index].options.find((opt) => opt.isCorrect).id;
+        answer === questions[index].options.find((opt) => opt.isCorrect).id;
 
       return isCorrect ? count + 1 : count;
     }, 0);
 
     return correctAnswers;
+  };
+
+  const calculatePercentage = () => {
+    const percentage = (calculateResult() / questions.length) * 100;
+    return isNaN(percentage) ? 0 : percentage.toFixed(2);
   };
 
   return (
@@ -48,13 +52,19 @@ const QuestionBox = ({ isDarkMode, isHighlighted }) => {
       <div className="modal-content">
         {hasMoreQuestions ? (
           <>
-            <h3 className="question-text">{questions[currentQuestion].text}</h3>
+            <h3 className="question-text">
+              {`${currentQuestion + 1}. ${questions[currentQuestion].text}`}
+            </h3>
             <ul className="options-list">
               {questions[currentQuestion].options.map((option) => (
                 <li key={option.id}>
                   <button
                     className={`option-button ${
-                      selectedAnswer === option.id ? "selected" : ""
+                      selectedAnswer === option.id
+                        ? option.isCorrect
+                          ? "selected-correct"
+                          : "selected-wrong"
+                        : ""
                     }`}
                     onClick={() => handleAnswerClick(option.id)}
                     disabled={selectedAnswer !== null} // Disable the button after selecting an option
@@ -67,9 +77,11 @@ const QuestionBox = ({ isDarkMode, isHighlighted }) => {
           </>
         ) : (
           <>
-            <p className="resultText">{`You got ${calculateResult()} out of ${
+            <h3 className="resultText">Your Result:</h3>
+            <p className="resultText second">{`You answered ${calculateResult()} out of ${
               questions.length
-            } questions correct.`}</p>
+            } questions correctly.`}</p>
+            <p className="resultText third">{`${calculatePercentage()}%`}</p>
             <button className="restartButton" onClick={handleRestart}>
               Restart Quiz
             </button>

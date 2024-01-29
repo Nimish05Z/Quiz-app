@@ -73,3 +73,17 @@ button img {
   transform: rotate(360deg);
 }
 
+.logoImg,
+.logo {
+  height: 50px;
+  width: 150px;
+  border: #3a4cb1;
+  z-index: 100;
+}
+
+.logotitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 660px;
+}
