@@ -30,9 +30,7 @@
 
 .question-text {
   font-size: 2.6rem;
-  background: -webkit-linear-gradient(#3a4cb1, #e24b4b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #c53aa6;
   text-align: center;
   width: 100%;
 }
@@ -82,17 +80,10 @@
   color: #fff;
 }
 
-.highlighted {
-  background-color: red;
-  color: #fff;
-}
-
 .resultText {
   font-size: 6rem;
   font-weight: 700;
-  background: -webkit-linear-gradient(#3a4cb1, #e24b4b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #c53aa6;
   text-align: center;
   width: 100%;
 }
@@ -121,4 +112,13 @@
 .restartButton:hover {
   background-color: rgb(4, 168, 4);
   color: #fff;
+}
+
+.highlighted .question-text {
+  color: #743ad5; /* Adjust the color as needed */
+  transition: background-color 0.5s;
+}
+.highlighted .resultText {
+  color: #743ad5; /* Adjust the color as needed */
+  transition: background-color 0.5s;
 }

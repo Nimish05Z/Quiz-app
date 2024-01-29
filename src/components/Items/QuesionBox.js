@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "../Styles/QuestionBox.css";
 import questions from "../../questions"; // Adjust the import path based on your project structure
 
-const QuestionBox = ({ isDarkMode }) => {
+const QuestionBox = ({ isDarkMode, isHighlighted }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [userAnswers, setUserAnswers] = useState([]);
@@ -16,7 +16,7 @@ const QuestionBox = ({ isDarkMode }) => {
       setUserAnswers((prevAnswers) => [...prevAnswers, answerId]);
       setSelectedAnswer(null);
       setCurrentQuestion((prevQuestion) => prevQuestion + 1);
-    }, 800);
+    }, 600);
   };
 
   // Check if there are more questions
@@ -41,7 +41,9 @@ const QuestionBox = ({ isDarkMode }) => {
 
   return (
     <div
-      className={`modal-container ${isDarkMode ? "dark-mode" : "light-mode"}`}
+      className={`modal-container ${isDarkMode ? "dark-mode" : "light-mode"} ${
+        isHighlighted ? "highlighted" : ""
+      }`}
     >
       <div className="modal-content">
         {hasMoreQuestions ? (
@@ -65,8 +67,12 @@ const QuestionBox = ({ isDarkMode }) => {
           </>
         ) : (
           <>
-            <p className='resultText'>{`You got ${calculateResult()} out of ${questions.length} questions correct.`}</p>
-            <button className="restartButton" onClick={handleRestart}>Restart Quiz</button>
+            <p className="resultText">{`You got ${calculateResult()} out of ${
+              questions.length
+            } questions correct.`}</p>
+            <button className="restartButton" onClick={handleRestart}>
+              Restart Quiz
+            </button>
           </>
         )}
       </div>

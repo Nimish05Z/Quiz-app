@@ -6,15 +6,14 @@ import './App.css'; // Import your global styles
 
 const App = () => {
   const [isDarkMode, setDarkMode] = useState(false);
-  const [ishighlightQuestion, setHighlightQuestion] = useState(false);
+  const [isHighlighting, setHighlighting] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
   };
 
-  const handleHighlightQuestion = () => {
-    setHighlightQuestion((prevColor) => !prevColor);
-    // Add logic to reset highlighting after a certain duration if needed
+  const toggleHighlighting = () => {
+    setHighlighting((prevHighlighting) => !prevHighlighting);
   };
 
   return (
@@ -22,9 +21,10 @@ const App = () => {
       <NavBar
         isDarkMode={isDarkMode}
         toggleDarkMode={toggleDarkMode}
-        highlightQuestion={handleHighlightQuestion}
+        toggleHighlighting={toggleHighlighting}
+        isHighlighting={isHighlighting}
       />
-      <QuestionBox isHighlighted={ishighlightQuestion} isDarkMode={isDarkMode} />
+      <QuestionBox isHighlighted={isHighlighting} isDarkMode={isDarkMode} />
     </div>
   );
 };
