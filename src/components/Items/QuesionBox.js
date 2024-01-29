@@ -6,12 +6,14 @@ import questions from "../../questions"; // Adjust the import path based on your
 const QuestionBox = ({ isDarkMode }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [userAnswers, setUserAnswers] = useState([]);
 
   const handleAnswerClick = (answerId) => {
     setSelectedAnswer(answerId);
 
     // Automatically move to the next question after 3 seconds
     setTimeout(() => {
+      setUserAnswers((prevAnswers) => [...prevAnswers, answerId]);
       setSelectedAnswer(null);
       setCurrentQuestion((prevQuestion) => prevQuestion + 1);
     }, 800);
@@ -19,6 +21,23 @@ const QuestionBox = ({ isDarkMode }) => {
 
   // Check if there are more questions
   const hasMoreQuestions = currentQuestion < questions.length;
+
+  const handleRestart = () => {
+    setCurrentQuestion(0);
+    setUserAnswers([]);
+  };
+
+  const calculateResult = () => {
+    const correctAnswers = userAnswers.reduce((count, answer, index) => {
+      const isCorrect =
+        answer ===
+        questions[index].options.find((opt) => opt.isCorrect).id;
+
+      return isCorrect ? count + 1 : count;
+    }, 0);
+
+    return correctAnswers;
+  };
 
   return (
     <div
@@ -45,7 +64,10 @@ const QuestionBox = ({ isDarkMode }) => {
             </ul>
           </>
         ) : (
-          <p>No more questions. Quiz completed!</p>
+          <>
+            <p className='resultText'>{`You got ${calculateResult()} out of ${questions.length} questions correct.`}</p>
+            <button className="restartButton" onClick={handleRestart}>Restart Quiz</button>
+          </>
         )}
       </div>
     </div>
